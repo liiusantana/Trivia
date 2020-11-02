@@ -1,0 +1,4 @@
+default: -p no_cloud_report -p html -p bdd
+no_cloud_report: --publish-quiet
+html: --format html --out=logs/report.html
+bdd: --format pretty
