@@ -1,7 +1,8 @@
 Testando o Trivia
-Site utilizado na automação: https://opentdb.com/
-Editor de código: Visual Studio Code
-Linguagem de programação: Ruby
+
+> Site utilizado na automação: https://opentdb.com/
+> Editor de código: Visual Studio Code
+> Linguagem de programação: Ruby
 
 Aqui vamos ver:
 
