@@ -1,0 +1,227 @@
+//Acessando pasta do projeto
+C:\Tools\Cmder
+λ cd C:\Trivia\Trivia
+
+//Verificar conteudo da pasts
+C:\Trivia\Trivia
+λ ls
+Gemfile
+
+//Instalando Gems (extensões)
+C:\Trivia\Trivia
+λ bundler install
+Fetching gem metadata from https://rubygems.org/.........
+Resolving dependencies...
+Using public_suffix 4.0.6
+Using addressable 2.7.0
+Using bundler 2.1.4
+Using mini_mime 1.0.2
+Using mini_portile2 2.4.0
+Using nokogiri 1.10.10 (x64-mingw32)
+Using rack 2.2.3
+Using rack-test 1.1.0
+Using regexp_parser 1.8.2
+Using xpath 3.2.0
+Using capybara 3.33.0
+Bundle complete! 1 Gemfile dependency, 11 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+
+//Verificando a versão do Cucumber
+C:\Trivia\Trivia
+λ cucumber --version
+5.2.0
+
+//Iniciado um projeto cucumber
+C:\Trivia\Trivia
+λ cucumber --init
+  create   features
+  create   features/step_definitions
+  create   features/support
+  create   features/support/env.rb
+
+//executando o projeto
+C:\Trivia\Trivia
+λ cucumber
+#language: pt
+Funcionalidade: Busca no Banco de Questões
+    Sendo um visitante do site Open Trivia Data Base
+    Quero fazer uma pesquisa
+    Para encontrar a(s) questão(es) desejada(s)
+
+  Cenario: Busca por questão inexistente                                   # features/Busca.feature:8
+    Dado que navego para a página de busca do banco de questões            # features/Busca.feature:9
+    E digito 'Science: Computers' no campo de busca                        # features/Busca.feature:10
+    Quando clico no botão de search                                        # features/Busca.feature:11
+    Então visualizo uma mensagem de erro com o texto 'No questions found.' # features/Busca.feature:12
+
+  Cenario: Busca por categoria                                  # features/Busca.feature:14
+    Dado que navego para a página de busca do banco de questões # features/Busca.feature:15
+    E escolho filtrar por Category                              # features/Busca.feature:16
+    E informo que a categoria é Science: Computers              # features/Busca.feature:17
+    Quando clico no botão search                                # features/Busca.feature:18
+    Então verifico que a listagem retorna vinte e cinco itens   # features/Busca.feature:19
+    E que o controle de paginação é exibido corretamente        # features/Busca.feature:20
+
+  Cenario: Busca por Usuário                                                # features/Busca.feature:22
+    Dado que navego para a página de busca do banco de questões             # features/Busca.feature:23
+    E escolho filtrar por User                                              # features/Busca.feature:24
+    E informo que o usuário é Karen                                         # features/Busca.feature:25
+    Quando clico no botão search                                            # features/Busca.feature:26
+    Então verifico que a lista retorna questões que o Created By seja Karen # features/Busca.feature:27
+
+3 scenarios (3 undefined)
+15 steps (15 undefined)
+0m2.212s
+
+You can implement step definitions for undefined steps with these snippets:
+
+Dado('que navego para a página de busca do banco de questões') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Dado('digito {string} no campo de busca') do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Quando('clico no botão de search') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Então('visualizo uma mensagem de erro com o texto {string}') do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Dado('escolho filtrar por Category') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Dado('informo que a categoria é Science: Computers') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Quando('clico no botão search') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Então('verifico que a listagem retorna vinte e cinco itens') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Então('que o controle de paginação é exibido corretamente') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Dado('escolho filtrar por User') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Dado('informo que o usuário é Karen') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Então('verifico que a lista retorna questões que o Created By seja Karen') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│ Share your Cucumber Report with your team at https://reports.cucumber.io │
+│                                                                          │
+│ Command line option:    --publish                                        │
+│ Environment variable:   CUCUMBER_PUBLISH_ENABLED=true                    │
+│ cucumber.yml:           default: --publish                               │
+│                                                                          │
+│ More information at https://reports.cucumber.io/docs/cucumber-ruby       │
+│                                                                          │
+│ To disable this message, specify CUCUMBER_PUBLISH_QUIET=true or use the  │
+│ --publish-quiet option. You can also add this to your cucumber.yml:      │
+│ default: --publish-quiet                                                 │
+└──────────────────────────────────────────────────────────────────────────┘
+
+//Executando um cenário especifico
+C:\Trivia\Trivia
+λ cucumber -t @fail_questao
+#language: pt
+Funcionalidade: Busca no Banco de Questões
+    Sendo um visitante do site Open Trivia Data Base
+    Quero fazer uma pesquisa
+    Para encontrar a(s) questão(es) desejada(s)
+
+  @fail_questao
+  Cenario: Busca por questão inexistente                                   # features/Busca.feature:9
+    Dado que navego para a página de busca do banco de questões            # features/step_definitions/busca_steps.rb:1
+    E digito 'Science: Computers' no campo de busca                        # features/step_definitions/busca_steps.rb:5
+    Quando clico no botão de search                                        # features/step_definitions/busca_steps.rb:9
+    Então visualizo uma mensagem de erro com o texto 'No questions found.' # features/step_definitions/busca_steps.rb:13
+
+1 scenario (1 pending)
+4 steps (3 skipped, 1 pending)
+0m2.098s
+┌──────────────────────────────────────────────────────────────────────────┐
+│ Share your Cucumber Report with your team at https://reports.cucumber.io │
+│                                                                          │
+│ Command line option:    --publish                                        │
+│ Environment variable:   CUCUMBER_PUBLISH_ENABLED=true                    │
+│ cucumber.yml:           default: --publish                               │
+│                                                                          │
+│ More information at https://reports.cucumber.io/docs/cucumber-ruby       │
+│                                                                          │
+│ To disable this message, specify CUCUMBER_PUBLISH_QUIET=true or use the  │
+│ --publish-quiet option. You can also add this to your cucumber.yml:      │
+│ default: --publish-quiet                                                 │
+└──────────────────────────────────────────────────────────────────────────┘
+
+//Publicando relatório na núvem (Cucumber)
+C:\Trivia\Trivia
+λ cucumber features\Busca.feature --publish
+
+DevTools listening on ws://127.0.0.1:63427/devtools/browser/359f76b2-246e-475f-9c20-63c438bc2da9
+┌──────────────────────────────────────────────────────────────────────────┐
+│ View your Cucumber Report at:                                            │
+│ https://reports.cucumber.io/reports/3b8863de-6a80-4d27-9f3f-e56a19650348 │
+│                                                                          │
+│ This report will self-destruct in 24h.                                   │
+│ Keep reports forever: https://reports.cucumber.io/profile                │
+└──────────────────────────────────────────────────────────────────────────┘
+
+//Gerando relatório
+C:\Trivia\Trivia
+λ cucumber features\Busca.feature
+Using the default, no_cloud_report, html and bdd profiles...
+#language: pt
+Funcionalidade: Busca no Banco de Questões
+    Sendo um visitante do site Open Trivia Data Base
+    Quero fazer uma pesquisa
+    Para encontrar a(s) questão(es) desejada(s)
+
+  @fail_questao
+  Cenario: Busca por questão inexistente                        # features/Busca.feature:9
+      Tudo aqui ocorre antes do cenário
+
+DevTools listening on ws://127.0.0.1:55752/devtools/browser/09dc12d8-00f2-4069-ad26-0c50b6f62ea5
+    Dado que navego para a página de busca do banco de questões # features/step_definitions/busca_steps.rb:2
+    E digito no campo de busca:                                 # features/step_definitions/busca_steps.rb:6
+      | info | Science: Computers |
+    Quando clico no botão de buscar                             # features/step_definitions/busca_steps.rb:12
+    Então visualizo uma mensagem: "No questions found."         # features/step_definitions/busca_steps.rb:16
+      Tudo aqui ocorre depois do cenário
+
+  @happy_category
+  Cenario: Busca por categoria                                  # features/Busca.feature:17
+      Tudo aqui ocorre antes do cenário
+    Dado que navego para a página de busca do banco de questões # features/step_definitions/busca_steps.rb:2
+    Quando escolho filtrar pela categoria "Science: Computers"  # features/step_definitions/busca_steps.rb:21
+    Então verifico que a listagem retorna vinte e cinco itens   # features/step_definitions/busca_steps.rb:27
+    E que o controle de paginação é exibido corretamente        # features/step_definitions/busca_steps.rb:33
+      Tudo aqui ocorre depois do cenário
+
+  @happy_user
+  Cenario: Busca por Usuário                                                # features/Busca.feature:24
+      Tudo aqui ocorre antes do cenário
+    Dado que navego para a página de busca do banco de questões             # features/step_definitions/busca_steps.rb:2
+    Quando escolho filtrar por User 'Karen'                                 # features/step_definitions/busca_steps.rb:37
+    Então verifico que a lista retorna questões que o Created By seja Karen # features/step_definitions/busca_steps.rb:43
+      Tudo aqui ocorre depois do cenário
+
+3 scenarios (3 passed)
+11 steps (11 passed)
+0m20.357s
